@@ -60,3 +60,32 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-color: #00a98f;
   box-shadow: 0 0 #0000, 0 0 #0000, 0 3px 5px -1px rgb(0 0 0 / 10%), 0 4px 6px -4px rgb(0 0 0 / 10%);
 }
+.btn-guardar:hover {
+  opacity: 0.8;
+}
+
+
+@media (max-width: 860px) {
+  .form {
+    height: auto;
+  }
+  .form-title {
+    margin-bottom: 15px;
+  }
+  form {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center ;
+    gap: 20px;
+  }
+  label {
+    width: 100%;
+    margin-right: 0;
+  }
+  input {
+    width: 100%;
+  }
+  .btn-guardar {
+    width: 100%;
+  }
+}

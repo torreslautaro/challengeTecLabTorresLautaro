@@ -28,6 +28,9 @@
   border: none;
   cursor: pointer;
 }
+.btn-borrar:hover {
+  opacity: 0.8;
+}
 span{
   color: #b1b0b0;
 }

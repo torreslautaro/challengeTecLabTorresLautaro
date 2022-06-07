@@ -6,7 +6,7 @@
 			<p>Accion</p>
 		</div>
 		<div v-for="dt in store.data" :key="dt.id" class="table-grid-contenido">
-			<p class="table-grid-nombre">{{dt.content}}</p>
+			<p class="table-grid-nombre">{{dt.name}}</p>
       <p class="table-grid-horario">de {{dt.timeFrom}} a {{dt.timeTo}}</p>
 			<button class="btn-borrar" @click="store.removeItems(dt)">
 				<span class="material-icons">delete</span>
