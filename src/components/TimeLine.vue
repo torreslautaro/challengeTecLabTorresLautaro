@@ -26,7 +26,6 @@ export default {
 				editable: { remove: true },
         zoomMax: 8760090,
         zoomMin: 1000000,
-				showCurrentTime: false,
 				onRemove: (item, callback) => {
 					this.store.removeItems(item, callback)
 				}
@@ -35,9 +34,9 @@ export default {
   },
   methods: {
     move(percentage) {
-      const range = store.timeline.getWindow()
+      const range = this.store.timeline.getWindow()
       const interval = range.end - range.start
-      store.timeline.setWindow({
+      this.store.timeline.setWindow({
         start: range.start.valueOf() - interval * percentage,
         end: range.end.valueOf() - interval * percentage
       })
@@ -47,26 +46,26 @@ export default {
       if (value < 0) {
         const start = moment().year(moment().year() - 100000),
           end = moment().year(moment().year() + 1)
-        store.timeline.zoomOut(-value)
-        if (value === "-1") store.timeline.setWindow(start, end)
+        this.store.timeline.zoomOut(-value)
+        if (value === "-1") this.store.timeline.setWindow(start, end)
       } else if (value > 0) {
         const start = moment(), end = moment(moment().utc() + 10)
-        store.timeline.zoomIn(value)
-        if (value === "1") store.timeline.setWindow(start, end)
+        this.store.timeline.zoomIn(value)
+        if (value === "1") this.store.timeline.setWindow(start, end)
       } else {
-        store.timeline.fit(store.items.getIds())
+        this.store.timeline.fit(this.store.items.getIds())
         this.value = 0
       }
     },
     handleClickFit() {
       document.getElementById("sliderZoom").value = 0
-      store.timeline.fit(this.store.items.getIds())
+      this.store.timeline.fit(this.store.items.getIds())
     }
   },
   mounted() {
-    let me = this
     let container = document.getElementById('visualization')
-    store.timeline = new vis.Timeline(container, store.items, me.options)
+    this.store.timeline = new vis.Timeline(container, this.store.items, this.options)
+    this.store.timeline.moveTo(new Date())
   }
 }
 </script>

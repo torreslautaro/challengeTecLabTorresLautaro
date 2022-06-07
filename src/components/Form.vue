@@ -29,6 +29,7 @@ import '../assets/form.css'
 export default {
   data() {
     return {
+      store,
       name: '',
       date: '',
       timeFrom: '',
@@ -55,9 +56,9 @@ export default {
         start: newData.dateFrom,
         end: newData.dateTo
       }
-      store.setData(newData)
-      store.setItems(newItem)
-      store.setTimelineItems()
+      this.store.setData(newData)
+      this.store.setItems(newItem)
+      this.store.setTimelineItems()
     }
   },
 }
